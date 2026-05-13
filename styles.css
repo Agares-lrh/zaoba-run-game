@@ -1,0 +1,151 @@
+:root {
+  --bg: #dff3ff;
+  --road: #5b6472;
+  --road-line: #ced6e0;
+  --student: #2f80ed;
+  --obstacle: #f2994a;
+  --boss: #eb5757;
+  --text: #1f2937;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+  background: linear-gradient(#bde6ff, #dff3ff 60%, #eff8ff);
+  color: var(--text);
+}
+
+.game-wrapper {
+  max-width: 920px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+.hud {
+  background: #ffffffcc;
+  border-radius: 12px;
+  padding: 12px 16px;
+  margin-bottom: 12px;
+  box-shadow: 0 4px 14px #0000001a;
+}
+
+.hud h1 {
+  margin: 0 0 8px;
+  font-size: 26px;
+}
+
+.hud-row {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  font-size: 18px;
+}
+
+.tips {
+  margin: 8px 0 0;
+  font-size: 14px;
+  opacity: 0.85;
+}
+
+#game-area {
+  position: relative;
+  width: 100%;
+  height: 520px;
+  overflow: hidden;
+  border-radius: 16px;
+  border: 3px solid #ffffff;
+  background: linear-gradient(#9dd9ff, #bde6ff 12%, #7a8598 12%, #6c7482 100%);
+  box-shadow: 0 8px 24px #0000002a;
+}
+
+#lane-lines {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(to right, transparent 32.6%, #ffffff77 33%, #ffffff77 34%, transparent 34.4%),
+    linear-gradient(to right, transparent 65.6%, #ffffff77 66%, #ffffff77 67%, transparent 67.4%);
+}
+
+.student,
+.obstacle {
+  position: absolute;
+  bottom: 24px;
+}
+
+.student {
+  width: 64px;
+  height: 84px;
+  border-radius: 12px;
+  background: var(--student);
+  border: 3px solid #ffffff;
+  z-index: 10;
+  transition: left 0.12s ease;
+}
+
+.student::before {
+  content: "";
+  position: absolute;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: #ffe2c0;
+  left: 50%;
+  transform: translateX(-50%);
+  top: -20px;
+  border: 2px solid #fff;
+}
+
+.student.jumping {
+  box-shadow: 0 -18px 0 0 #00000022;
+}
+
+.student.ducking {
+  height: 52px;
+}
+
+.obstacle {
+  width: 62px;
+  height: 62px;
+  border-radius: 10px;
+  border: 3px solid #ffffff;
+  left: 0;
+}
+
+.obstacle.rail {
+  background: #8d6e63;
+  height: 48px;
+}
+
+.obstacle.pedestrian {
+  background: var(--obstacle);
+}
+
+.obstacle.director {
+  background: var(--boss);
+  height: 72px;
+}
+
+.overlay {
+  margin-top: 12px;
+  background: #111827ee;
+  color: white;
+  padding: 14px;
+  border-radius: 12px;
+  display: none;
+}
+
+.overlay.visible {
+  display: block;
+}
+
+#start-btn {
+  border: none;
+  border-radius: 8px;
+  padding: 10px 16px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 8px;
+}
