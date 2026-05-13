@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>早八跑酷</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="game-wrapper">
+      <header class="hud">
+        <h1>早八跑酷：冲向教室！</h1>
+        <div class="hud-row">
+          <span>剩余时间：<strong id="time-left">60</strong>s</span>
+          <span>碰撞次数：<strong id="hit-count">0</strong>/3</span>
+          <span>得分：<strong id="score">0</strong></span>
+        </div>
+        <p class="tips">操作：A/← 左移，D/→ 右移，W/↑ 跳跃，S/↓ 下蹲，空格开始/重开</p>
+      </header>
+
+      <main id="game-area" aria-label="早八跑酷游戏区域">
+        <div id="lane-lines"></div>
+        <div id="player" class="student" aria-label="学生"></div>
+      </main>
+
+      <section id="overlay" class="overlay visible" aria-live="polite">
+        <h2 id="overlay-title">早八跑酷</h2>
+        <p id="overlay-text">按空格开始，60秒内冲进教室！超过时间或碰撞3次都算迟到。</p>
+        <button id="start-btn" type="button">开始游戏</button>
+      </section>
+    </div>
+
+    <script src="game.js"></script>
+  </body>
+</html>
